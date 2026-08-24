@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>How to read the scores</title>
+<style>
+body{font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,sans-serif;
+ max-width:1200px;margin:0 auto;padding:24px 18px 60px;color:#1a1a1a;background:#fff}
+h1{font-size:26px;margin:0 0 6px} h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #ddd;padding-bottom:4px}
+.sub{color:#555;margin:0 0 18px} nav a{margin-right:14px} code,pre{font-family:ui-monospace,Menlo,monospace}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:10px 0}
+th,td{border:1px solid #ddd;padding:4px 7px;text-align:left;vertical-align:top}
+th{background:#f4f4f4;position:sticky;top:0}
+pre{background:#f7f7f7;border:1px solid #e3e3e3;padding:12px;overflow-x:auto;font-size:11.5px;white-space:pre-wrap;word-break:break-all}
+.note{background:#fbf3ea;border-left:4px solid #e05b1f;padding:10px 14px;margin:14px 0}
+</style>
+</head>
+<body>
+<nav><a href='index.html'>Home</a><a href='niches-1.html'>Niches</a><a href='landscape.html'>Landscape</a></nav><h1>Project background — everything an AI assistant needs to know</h1>
+
+<p>This document accompanies the AI Opportunity Atlas data files. It explains where the data came from, what was measured, what was found, and where the limits are. Everything here was produced by a research pipeline run in August 2026; every figure below traces to that work or to a dated external source that the research cited.</p>
+
+<p>---</p>
+
+<h2>1. What the project set out to do</h2>
+
+<p>The goal was practical: <strong>decide what AI product is actually worth building in late 2026</strong>, and to decide it from evidence rather than vibes. That required two things — a map of what already exists and is being funded, and a map of what is still open. So the work ran in two phases.</p>
+
+<strong>Phase 1 mapped the existing landscape</strong> by classifying every company Y Combinator has ever funded. YC was chosen as the lens because it funds 150–240 brand-new companies every few months at roughly a 1% acceptance rate, so its batch composition is one of the earliest visible signals of where thousands of ambitious founders think the opportunity is.
+
+<strong>Phase 2 mapped the opportunity space</strong> — an explicit tree of 20 domains, 89 areas and 500 specific niches, each researched and scored, deliberately extending beyond what YC funds.
+
+<p>---</p>
+
+<h2>2. How the data was built</h2>
+
+<p>### Phase 1 — the YC landscape</p>
+
+<ul>
+<li>The complete YC public directory was pulled on 2026-08-23: <strong>6,190 launched companies</strong> spanning every batch from Summer 2005 to the in-progress Fall 2026. It was validated against YC's live directory API — total, per-batch and per-status counts matched exactly, so there is no sampling gap.</li>
+<li><strong>3,459 companies were classified</strong>: every company from Winter 2023 onward (2,355) plus all older companies matching AI keywords or tags (1,102), by a fleet of 50 model agents against a fixed 23-theme taxonomy. Each company received an AI-relation tier (<code>ai_native</code>, <code>ai_infrastructure</code>, <code>ai_enabled</code>, <code>not_ai</code>), a primary theme and subtheme, an industry vertical, a target customer, and an agent-vs-copilot flag.</li>
+<li><strong>Label quality was measured, not assumed.</strong> An independent audit fleet blind re-classified 486 labels — an unbiased random sample plus every low-confidence label plus two deliberately suspicious segments. Agreement on the random sample was <strong>99.2%</strong>; all 9 disagreements were corrected in the data.</li>
+<li><strong>462 notable AI companies were enriched</strong> with funding and outcome data by web-research agents under strict no-guessing rules (every dollar figure needs a source URL; missing data stays null). Every claim of ≥$100M raised, ≥$1B valuation or ≥$100M acquisition price was then re-checked by separate adversarial fact-checkers: of 65 such claims, 60 were confirmed and 7 corrected against better sources.</li>
+<li><strong>A data-quality probe tested YC's own status field.</strong> Sampling 2021–23 companies marked "Active" and checking whether their websites still resolve found roughly 8–12% already dead, against a control group of "Inactive" companies where 64% were dead. Conclusion: YC's status lags reality, so all failure rates in this project are <strong>lower bounds</strong>.</li>
+</ul>
+
+<p>### Phase 2 — the opportunity map</p>
+
+<ul>
+<li>Four parallel research sweeps established the current context: technology shifts of the last 6–12 months, non-technological demand shifts (regulation, demographics, labor shortages, trade policy), the current builder/investor discourse, and a <strong>market-size reference compendium of ~90 dated, sourced figures</strong> used to keep market estimates grounded.</li>
+<li>A tree of 20 domains → 89 areas was defined, then <strong>89 agents (one per area)</strong> each researched their area and produced 4–6 concrete niches, scoring each against a fixed rubric with anchored 1–10 scales and supplying evidence URLs, a market estimate with its basis, an entry wedge, a moat path, risks, competitors found, and who holds an unfair advantage.</li>
+<li><strong>Scores were then calibrated.</strong> Because 89 different agents scored their own areas, 178 stratified niches were blind re-scored by an independent 8-judge panel that never saw the original scores. Systematic biases were measured and subtracted from every score. Two real biases were found: researchers <strong>inflated market size by using whole-industry figures as niche markets</strong>, and they <strong>over-rated openness</strong> (under-estimated competition) almost everywhere. Inter-judge spread on a shared control set averaged <strong>1.2 points</strong>, which is the practical precision limit of the composite score.</li>
+</ul>
+
+<p>---</p>
+
+<h2>3. What the landscape data shows</h2>
+
+<p>### AI's takeover of YC is total</p>
+
+<p>Since Fall 2024, roughly <strong>80% of every YC batch is core AI</strong> (AI-native products plus AI infrastructure), and 87–96% is AI in the broad sense including AI-enabled products. For comparison, mid-2023 was about 35%. Being "an AI startup" carries no signal any more.</p>
+
+<p>### Four eras in four years</p>
+
+<p>Classifying by batch year makes the shifts legible:</p>
+
+<ul>
+<li><strong>2023 — applications rush in.</strong> Copilots, chat-with-your-documents, content generation, first-wave coding assistants.</li>
+<li><strong>2024 — vertical AI peaks.</strong> Healthcare, legal and creative tools hit their maximum share of batches; "agent" becomes the standard pitch.</li>
+<li><strong>2025 — the infrastructure turn.</strong> Agent infrastructure (evals, memory, browser/computer-use infra, agent security, billing) nearly doubles its share of batches, from 4.9% to 9.5% by 2026.</li>
+<li><strong>2026 — agents assumed, atoms rising.</strong> Robotics triples from 1.9% to 6.2% of core-AI companies; model/compute infrastructure, defense and hardware all climb.</li>
+</ul>
+
+<p>Biggest movers, 2024 → 2026, measured in percentage points of batch share:</p>
+
+<p>| Rising | Δ | Falling | Δ |</p>
+<p>|---|---|---|---|</p>
+<p>| Agent infrastructure | +4.6pp (4.9 → 9.5%) | Creative & media | −2.7pp (6.0 → 3.3%) |</p>
+<p>| Robotics & physical AI | +4.3pp (1.9 → 6.2%) | Healthcare | −2.6pp (8.6 → 6.0%) |</p>
+<p>| Model & compute infra | +2.3pp (2.5 → 4.8%) | Productivity assistants | −1.9pp (3.0 → 1.2%) |</p>
+<p>| Vertical AI (other industries) | +2.0pp (17.4 → 19.4%) | Legal & compliance | −1.7pp (4.4 → 2.7%) |</p>
+<p>| Defense, space & gov | +1.1pp (1.4 → 2.5%) | Sales & marketing | −1.5pp (7.0 → 5.4%) |</p>
+<p>| AI hardware & chips | +0.8pp (1.2 → 1.9%) | Coding & devtools | −1.3pp (8.8 → 7.6%) |</p>
+
+<p>Those falling categories did not shrink as markets — the easy wedges were taken, and the bar moved from "add AI to X" to "own the workflow and sell the outcome".</p>
+
+<p>### The agent label stopped being a differentiator</p>
+
+<p>The share of new core-AI companies whose product is itself an autonomous agent rose to <strong>51% in Spring 2026 and has since fallen</strong> (42% in Summer 2026). When half a batch says the same thing, it is a feature, not a strategy.</p>
+
+<p>### Mortality and outcomes by theme</p>
+
+<p>Measured on 2023-and-earlier cohorts only, since younger companies have not had time to die or exit (remember: inactive rates are floors):</p>
+
+<p>| Theme | n | Acquired | Inactive | Notes |</p>
+<p>|---|---|---|---|---|</p>
+<p>| Consumer AI | 67 | 4% | 28% | highest death rate |</p>
+<p>| Data, MLOps & evals | 85 | 22% | 24% | consolidates *and* dies |</p>
+<p>| Model & compute infra | 28 | 18% | 25% | brutal |</p>
+<p>| Coding & devtools | 77 | 9% | 21% | |</p>
+<p>| Creative & media | 59 | 8% | 19% | |</p>
+<p>| Robotics | 49 | 16% | 18% | capital-intensive |</p>
+<p>| Customer support | 42 | 19% | 14% | |</p>
+<p>| Sales & marketing | 129 | 16% | 16% | |</p>
+<p>| Vertical AI (other) | 258 | 11% | 12% | largest cohort |</p>
+<p>| Healthcare | 118 | 3% | 10% | sticky, slow exits |</p>
+<p>| Finance & accounting ops | 55 | 6% | 9% | |</p>
+<p>| Workflow automation | 57 | 14% | 9% | |</p>
+<p>| Legal & compliance | 31 | 16% | 3% | |</p>
+<p>| HR & recruiting | 41 | 7% | 2% | most durable |</p>
+
+<p>The pattern that matters: the unglamorous back-office themes survive best, and the "sexiest" categories (consumer, model infra, dev tooling) kill the most companies.</p>
+
+<p>### Verified winners, exits and failures</p>
+
+<p>Every company below was confirmed to be a genuine YC alumnus with its batch; figures come from dated press.</p>
+
+<ul>
+<li><strong>Scale AI (S16)</strong> — Meta paid $14.3B for a 49% non-voting stake at ~$29B valuation (June 2025). The flagship data/infrastructure outcome.</li>
+<li><strong>Replit (W18)</strong> — ARR $2.8M → $150M; $250M at $3B (Sept 2025), then $400M at $9B (March 2026).</li>
+<li><strong>Legora (W24, formerly Leya)</strong> — legal AI; $550M at $5.55B (March 2026), $816M total raised, $100M ARR by April 2026.</li>
+<li>Other verified unicorns: <strong>Deepgram (W16)</strong> $1.3B, <strong>Speak (W17)</strong> $1B, <strong>Gecko Robotics (W16)</strong> $1.25B. Sub-unicorn but notable: <strong>Exa (S21)</strong> $700M, <strong>Tennr (W23)</strong> $605M, <strong>Vapi (W21)</strong> ~$500M, <strong>AssemblyAI (S17)</strong>, <strong>Bland (S23)</strong>.</li>
+<li><strong>Exits:</strong> Casetext (S13) → Thomson Reuters for $650M cash (2023). Then a 2025–26 wave of AI platforms absorbing YC tooling startups: PlayAI → Meta, Humanloop → Anthropic, OpenPipe → CoreWeave, Replicate → Cloudflare, Langfuse → ClickHouse, Fintool → Microsoft, StackAI → Asana (~$75M), Continue → Cursor. No YC AI IPOs in 2023–2026.</li>
+<li><strong>Failures:</strong> Cruise (W14) shut by GM after >$10B losses; Embark (W16) went from a $5.2B SPAC to a $71M asset sale; Presto (S10) had its "AI" drive-thru exposed as ~70% human-operated; Phind (S22) shut down a month after raising; K-Scale Labs (W24) folded.</li>
+<li><strong>Commonly assumed to be YC but verified NOT YC:</strong> Cursor/Anysphere, Cognition, Mistral, Harvey, Mercor, Wispr Flow, Gamma, Krea, Cresta, Weights & Biases, MosaicML, OpenEvidence, Abridge, Decagon, Cartesia, Browserbase. Do not attribute these to YC.</li>
+</ul>
+
+<p>---</p>
+
+<h2>4. The funding environment (context for what is fundable)</h2>
+
+<ul>
+<li>AI took roughly <strong>48% of global venture funding in 2025</strong> ($212B of $440B, Crunchbase) and <strong>~70–86% of US dollars in H1 2026</strong> (PitchBook: US H1 2026 $412.7B, 86% to AI).</li>
+<li>But it is <strong>hyper-concentrated</strong>: OpenAI and Anthropic alone absorbed a majority of US VC dollars; ~60% of global H1 2026 funding went into $1B+ rounds. Strip out the top five deals and ordinary US activity looks like any recent quarter.</li>
+<li><strong>Seed is flat</strong> (~$12B/quarter) with fewer, larger deals; Carta's data shows <strong>seed→Series A graduation collapsing to roughly 10–16%</strong>. Median seed post-money is ~$24.3M with an AI premium of about 40%.</li>
+<li><strong>The Series A bar</strong> is now roughly $2–5M ARR with a burn multiple near 1x. YC partners describe seven-figure revenue within months as normal for standouts, and reported ~14%/week aggregate growth in the Winter 2026 batch.</li>
+<li><strong>Bubble signals exist</strong>: central-bank warnings, a first shutdown wave, and at least one failed mega-raise (Thinking Machines' reported $50B round collapsed in January 2026, leaving it at $12B).</li>
+</ul>
+
+<p>---</p>
+
+<h2>5. What is saturated, what defends a company, where the white space is</h2>
+
+<p>### Saturated (walk past without an unfair edge)</p>
+
+<p>AI SDRs and outbound (the category leader reportedly saw 70–80% churn); meeting notetakers; support chatbots (incumbents price per resolution — Intercom at $0.99, HubSpot cut to $0.50 in April 2026); thin GPT wrappers and generic chat-with-docs; undifferentiated coding assistants (reported negative gross margins at the biggest names).</p>
+
+<p>### What actually defends an AI company in 2026</p>
+
+<p>The consensus, with attribution:</p>
+
+<ul>
+<li><strong>Workflow depth / owning the system of record</strong> — "integration is not a post-sale activity, it is the product surface" (Foundation Capital, Aug 2026); Sequoia's Pat Grady frames it as "depth of customer relationships and the simplicity of the path to outcome".</li>
+<li><strong>Proprietary, permissioned data that compounds</strong> — Bessemer's vertical-AI playbook: land ~10 customers with hand-built integrations, convert to broad data rights at Series A, so the advantage is something a model provider cannot ship as a feature.</li>
+<li><strong>Evals</strong> — YC president Garry Tan: "evals are emerging as the real moat". Relevant because MIT's NANDA study (Aug 2025) found <strong>95% of enterprise AI pilots showed no measurable P&L impact</strong>; being the vendor who can *prove* impact is the differentiator.</li>
+<li><strong>Distribution</strong> — Andrew Chen's "Revenge of the GPT Wrappers" (Feb 2025): once models commoditized, power returned to whoever owns the customer.</li>
+<li>Explicitly <strong>not</strong> moats: model access, and "prompt IP".</li>
+</ul>
+
+<p>### Business-model shift</p>
+
+<p>Median <strong>net revenue retention for AI-native software is ~48%</strong> (ChartMogul/Kyle Poyar, Dec 2025) — worse than consumer subscriptions. This is why outcome-based pricing (per resolution, per claim, per booking) is displacing per-seat pricing, and why retention economics should be interrogated in any plan.</p>
+
+<p>### Where the white space is claimed to be</p>
+
+<ul>
+<li><strong>Services-as-software.</strong> Sequoia's thesis that ~$10T of services revenue was never addressable by software (US legal fees alone rival global software spend); Foundation Capital's $4.6T version. YC's Spring 2026 request-for-startups asked explicitly for AI-native agencies and service firms. Proof points: General Catalyst's Long Lake rollup reached $100M EBITDA in under two years; Emergence Capital is organizing an "AI-native services" thesis; Thrive Holdings launched a $1B accounting rollup.</li>
+<li><strong>Consumer AI</strong> — only ~2–5% of recent YC batches, yet YC's Fall 2026 RFS asks for "consumer AI for a billion users". The field emptied while the demand thesis stayed.</li>
+<li><strong>Agent trust, security and verification</strong> — agent security startup Zenity raised $125M (Aug 2026); 30+ CVEs were found in MCP within a year; "proving you're human"/anti-deepfake is in the current RFS.</li>
+<li><strong>Software for agents (B2A)</strong> — Garry Tan, Aug 2026: "Make something agents want." Payment rails (ACP, AP2, Visa TAP), agent identity, machine-readable services.</li>
+<li><strong>Physical-world AI one layer up from the robots</strong> — humanoids are a capital game (Figure ~$39B, Skild ~$14B), but fleet ops, evals for embodied AI, and sim-to-real tooling are software problems a small team can own.</li>
+<li><strong>Unsexy regulated back-office</strong> — healthcare RCM and prior authorization, compliance automation, tax and audit: big labor spend, measurable outcomes, and the lowest death rates in the outcomes table.</li>
+</ul>
+
+<p>### The current technology and demand shifts behind "why now"</p>
+
+<p>Technology (last 6–12 months): MCP standardization including a stateless spec (July 2026); live agent payment rails; computer-use costs down 3–7x; robotics foundation models that adapt with <200 demonstrations; voice latency crossing usability thresholds; near-frontier models at collapsed prices; long-horizon agents becoming supervisable.</p>
+
+<p>Demand (non-technological): EU AI Act high-risk obligations applying from 2 August 2026 with penalties up to €15M or 3% of turnover; Colorado's AI Act (June 2026) and Texas TRAIGA (January 2026); a US nursing shortfall projected at 267,330 FTE by 2028 and ~9.7M direct-care roles to fill by 2034; ageing populations across the US, EU, Japan, Korea and China; and tariff/reshoring churn creating customs and supply-chain work.</p>
+
+<p>---</p>
+
+<h2>6. Files in this bundle</h2>
+
+<p>| File | What it is |</p>
+<p>|---|---|</p>
+<p>| <code>CONTEXT_PROMPT.md</code> | Ready-made prompt to paste into an AI assistant before asking questions |</p>
+<p>| <code>PROJECT_BACKGROUND.md</code> | This document |</p>
+<p>| <code>CODEBOOK.md</code> | Column definitions and score anchors for the niche data |</p>
+<p>| <code>opportunity_niches_compact.csv</code> | 500 niches, all scores, small enough to read in full (~168KB) |</p>
+<p>| <code>opportunity_niches.csv</code> | 500 niches, every field including wedges, risks, competitors, evidence URLs |</p>
+<p>| <code>opportunity_atlas_full.json</code> | The same data with the rubric and caveats embedded |</p>
+<p>| <code>yc_ai_companies.csv</code> | Phase 1 data: 3,035 AI-related YC companies with theme labels, status, team size, funding and outcomes |</p>
+
+<p>---</p>
+
+<h2>7. Limits — state these when you use the data</h2>
+
+<p>1. <strong>Precision.</strong> Composite differences under ~1.0 point are noise. The scores shortlist; they do not decide.</p>
+<p>2. <strong>Market estimates</strong> often use labor-spend proxies, and some rows were flagged for using whole-industry figures. Read <code>market_estimate_basis</code> before quoting any number.</p>
+<p>3. <strong>Blank means unknown, not zero.</strong> This applies to funding, valuation and market estimates alike.</p>
+<p>4. <strong>Competitor lists are not exhaustive</strong> — they reflect what agents found, not a full market scan.</p>
+<p>5. <strong>Failure rates are floors.</strong> YC's status field lags reality by roughly 8–12% on older cohorts.</p>
+<p>6. <strong>Scores assume a generic small team.</strong> A founder's own domain expertise, distribution, licence or capital can legitimately move a niche several points; <code>who_has_unfair_advantage</code> names who each niche naturally favours.</p>
+<p>7. <strong>This is a snapshot dated 2026-08-24</strong>, taken in an unusually fast-moving market. Anything time-sensitive should be re-checked against current sources.</p>
+<p>8. <strong>YC is one lens, not the whole market.</strong> It skews earlier-stage, US-centric and B2B-shaped. Phase 2 deliberately reaches beyond it, but the landscape statistics in section 3 describe YC specifically.</p>
+
+</body>
+</html>

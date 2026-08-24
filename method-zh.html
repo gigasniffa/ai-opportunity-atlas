@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>分數與方法說明</title>
+<style>
+body{font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,sans-serif;
+ max-width:1200px;margin:0 auto;padding:24px 18px 60px;color:#1a1a1a;background:#fff}
+h1{font-size:26px;margin:0 0 6px} h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #ddd;padding-bottom:4px}
+.sub{color:#555;margin:0 0 18px} nav a{margin-right:14px} code,pre{font-family:ui-monospace,Menlo,monospace}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:10px 0}
+th,td{border:1px solid #ddd;padding:4px 7px;text-align:left;vertical-align:top}
+th{background:#f4f4f4;position:sticky;top:0}
+pre{background:#f7f7f7;border:1px solid #e3e3e3;padding:12px;overflow-x:auto;font-size:11.5px;white-space:pre-wrap;word-break:break-all}
+.note{background:#fbf3ea;border-left:4px solid #e05b1f;padding:10px 14px;margin:14px 0}
+</style>
+</head>
+<body>
+<nav><a href='index.html'>首頁</a><a href='niches-zh-1.html'>細分方向</a><a href='landscape-zh.html'>版圖資料</a></nav><h1>從這裡開始 — 給 AI 助理的指示</h1>
+
+<p>有人把這份 gist 交給你，讓你在回答問題之前先完整掌握一項研究專案。這份文件會告訴你要讀哪些檔案、順序為何，以及每個欄位與分數該怎麼解讀。請先完整照做，再回覆。</p>
+
+<strong>請全程使用繁體中文（台灣用語）回答。</strong>
+
+<h2>1. 本網站的閱讀順序</h2>
+
+<p>1. 本頁（說明、欄位定義、評分解讀、資料限制）</p>
+<p>2. 細分方向資料：niches-zh-1.html、niches-zh-2.html、niches-zh-3.html、niches-zh-4.html（四頁合計 500 筆）</p>
+<p>3. YC 版圖資料：landscape-zh.html</p>
+
+<p>每一頁都是一般的 HTML 網頁，資料以 CSV 區塊呈現，可直接讀取與解析。</p>
+
+<h2>2. 這是什麼</h2>
+
+<p>同一項研究專案產出的兩份互相關聯的資料集，產生日期為 2026-08-24：</p>
+
+<ul>
+<li><strong>版圖資料</strong> — Y Combinator 投資過的每一家公司（6,190 家，涵蓋 2005 年至 2026 年秋季批次），其中 3,459 家與 AI 相關者已被分入 23 個主題，另有 462 家重要公司補上經查證的募資與結果資料。</li>
+<li><strong>機會地圖</strong> — 一棵 20 個領域 → 89 個板塊 → <strong>500 個具體 AI 創業細分方向</strong>的樹狀結構。每個方向在七個維度上各評 1–10 分並計算加權綜合分數，另附市場規模估算、切入點、護城河路徑、風險、已知競爭者與證據連結。</li>
+</ul>
+
+<p>另有一個以這份資料建立的互動式儀表板，但它是私人的 JavaScript 應用程式，你無法讀取；這些檔案已包含儀表板中的全部內容。</p>
+
+<h2>3. 資料如何建立（供你判斷可信度）</h2>
+
+<p>YC 名錄是直接抓取並與 YC 即時 API 交叉驗證——各批次與各狀態的家數完全一致。公司分類由一支模型代理團隊完成，接著由獨立的稽核團隊「盲評」重新檢查 486 筆標註，隨機樣本的一致率為 <strong>99.2%</strong>。募資資料在「不得臆測」的規則下蒐集，凡累計募資 ≥$100M 或估值 ≥$1B 的主張，都另由獨立的對抗式查核代理重新驗證。</p>
+
+<p>機會地圖方面：先以四項研究掃描確立近期有哪些變化（技術、法規、人口結構，以及約 90 筆有出處的市場規模數字），接著由 89 個代理各自研究一個板塊，產出附證據的評分方向。最後抽出 178 個方向，交由獨立的 8 位評審<strong>盲評重打分</strong>，並將他們找出的系統性偏差從所有分數中扣除。實際找到並修正了兩種偏差：研究者以整個產業的數字充當細分市場而高估市場規模，以及普遍高估空白度。</p>
+
+<h2>4. 分析時應記住的版圖事實</h2>
+
+<ul>
+<li>自 2024 年底起，<strong>YC 每一批約有 80% 是核心 AI 公司</strong>（含 AI 賦能則為 94%），而 2023 年年中僅約 35%。</li>
+<li>四個時代：2023 應用與套殼 → 2024 垂直 AI 高峰 → 2025 轉向代理基礎設施 → 2026 代理成為預設，前沿移往機器人、國防與硬體。</li>
+<li>2024→2026 上升：代理基礎設施 +4.6pp、機器人 +4.3pp、模型與運算設施 +2.3pp。下滑：創意與媒體 −2.7pp、醫療 −2.6pp、生產力助理 −1.9pp、法律 −1.7pp、銷售與行銷 −1.5pp、程式開發工具 −1.3pp。</li>
+<li>產品本身即為自主代理的新公司佔比，於 <strong>2026 春季批次達到 51% 的高點後開始下滑</strong>。</li>
+<li>死亡率（2023 年含以前的世代）：消費者 AI 最高（28% 已停業）、資料與 MLOps 24%、模型設施 25%；最不起眼的中後台主題反而活得最好（人資 2%、法律 3%、財會 9%）。</li>
+<li>資金高度集中：AI 在 2025 年吸走全球創投約 48%，2026 上半年更佔美國創投金額的 70–86%，但光是 OpenAI 與 Anthropic 就吃掉美國多數金額；種子輪金額持平，種子輪晉級 A 輪的比例已降至約 10–16%。</li>
+</ul>
+
+<h2>5. 分數怎麼解讀</h2>
+
+<p>七個維度皆以<strong>「資金低於 5 萬美元、2026 年底起步的小型技術創辦團隊」</strong>為基準評分：</p>
+
+<ul>
+<li><strong>market_size 市場規模</strong> — 目前每年花在這個問題上的金額，含執行這件事的人力與服務支出：1＝低於 $100M，3≈$1B，5≈$5B，7≈$20B，9≈$75B，10＝超過 $150B。</li>
+<li><strong>growth_tailwind 成長動能</strong> — 1 萎縮，5 穩定，7 快速（年增 >20%），10 受法規或人口結構強制推動。</li>
+<li><strong>openness 空白度</strong> — 競爭程度的<strong>反面</strong>，數值越高代表越空：1 極度擁擠且被大廠包進既有產品，5 有競爭但仍有空間，9 幾乎無人，10 全新且無人。</li>
+<li><strong>feasibility 可行性</strong> — 能否在約 6 個月內做出 v1 並拿到第一個付費客戶：1 不可能，5 困難但可行，7 可行，10 一個週末就能切入。</li>
+<li><strong>moat_potential 護城河潛力</strong> — 1 薄殼產品毫無累積，7 握有業務紀錄系統或可累積的資料＋評測機制，10 結構性優勢（網路效應、執照、獨家資料）。</li>
+<li><strong>wave_resilience 抗迭代性</strong> — 下一代前沿模型推出時的影響：1 直接被取代，5 中性，9 純順風。</li>
+<li><strong>timing 時機</strong> — 為何是現在：1 從 2015 年就做得出來，7 過去 12 個月才成立，10 過去 3 個月才成立且已有需求跡象。</li>
+<li><strong>confidence 信心值</strong>（0–1）— 刻意保守，多落在 0.4–0.65；數值低代表該筆研究的不確定性，而非對這個點子的負面判斷。</li>
+</ul>
+
+<strong>綜合評分：</strong> <code>worth_it = 0.20×市場 + 0.10×動能 + 0.15×空白度 + 0.20×可行性 + 0.15×護城河 + 0.10×抗迭代 + 0.10×時機</code>。被要求時可用任何權重重新計算。
+
+<h2>6. 必須遵守的限制</h2>
+
+<ul>
+<li>評審之間的分差平均為 <strong>1.2 分</strong>，因此<strong>綜合評分相差不到約 1.0 分應視為雜訊</strong>。</li>
+<li>市場規模多以人力支出作為替代指標，部分欄位仍沿用整個產業的數字——引用任何數字前，請先看 <code>market_estimate_basis</code>（市場測算依據）。</li>
+<li><strong>空白代表查不到可靠的公開資料，不等於零。</strong></li>
+<li>競爭者清單涵蓋面廣但並不窮盡；清單為空不代表市場真的沒人。</li>
+<li>失敗率是下限——YC 的「營運中」狀態在較舊的世代約高估存活率 8–12%。</li>
+<li>全部資料為 2026-08-24 的快照，且處於變動極快的市場。</li>
+</ul>
+
+<h2>7. 使用資料的原則</h2>
+
+<p>不要杜撰細分方向、公司、分數或數字。資料裡沒有的，就直接說沒有；若改用你自己的知識，請明確標示。引用時請附上 <code>niche_id</code>，以便回溯查證。<code>evidence_urls</code> 視為「待查證的主張」，而非已確立的事實。若你的知識與資料矛盾，請提出質疑並說明理由。</p>
+
+<h2>8. 讀完之後</h2>
+
+<strong>先不要進行任何分析。</strong> 讀完後只需簡短回覆確認：你載入了多少個細分方向與多少家公司、看得到哪些欄位群組、快照日期為何，以及有哪些檔案讀取失敗。接著等待下一則訊息，那裡才會提出真正的問題。
+
+</body>
+</html>
