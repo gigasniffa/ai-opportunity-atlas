@@ -37,7 +37,14 @@ pre{background:#f7f7f7;border:1px solid #e3e3e3;padding:12px;overflow-x:auto;fon
 <p>同一項研究專案產出的兩份互相關聯的資料集，產生日期為 2026-08-24：</p>
 
 <ul>
-<li><strong>版圖資料</strong> — Y Combinator 投資過的每一家公司（6,190 家，涵蓋 2005 年至 2026 年秋季批次），其中 3,459 家與 AI 相關者已被分入 23 個主題，另有 462 家重要公司補上經查證的募資與結果資料。</li>
+<li><strong>版圖資料</strong> — Y Combinator 投資過的每一家公司（6,190 家，涵蓋 2005 年至 2026 年秋季批次）。本專案出現三個數字，它們是層層包含的關係，並非互相矛盾：</li>
+</ul>
+<p>  - <strong>6,190</strong>＝YC 歷來全部公司。</p>
+<p>  - <strong>3,459</strong>＝實際「送進分類流程」的公司（2023 冬季批次以後的全部公司，加上符合 AI 關鍵字的較早公司）。其中有一部分被判定為 <code>not_ai</code>。</p>
+<p>  - <strong>3,035</strong>＝分類結果為<strong>與 AI 相關</strong>者（<code>ai_native</code>＋<code>ai_infrastructure</code>＋<code>ai_enabled</code>）。這就是 <code>yc_ai_companies_zh.csv</code> 的母體。</p>
+<p>  - <strong>「核心 AI」</strong>（主題 × 年度表）又是更小的子集：只含 <code>ai_native</code>＋<code>ai_infrastructure</code>（不含 <code>ai_enabled</code>），且只計 2023 年以後的批次。</p>
+<p>  另有 462 家重要公司補上經查證的募資與結果資料。</p>
+<ul>
 <li><strong>機會地圖</strong> — 一棵 20 個領域 → 89 個板塊 → <strong>500 個具體 AI 創業細分方向</strong>的樹狀結構。每個方向在七個維度上各評 1–10 分並計算加權綜合分數，另附市場規模估算、切入點、護城河路徑、風險、已知競爭者與證據連結。</li>
 </ul>
 
